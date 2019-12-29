@@ -36,13 +36,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("yo yo");
         if (!isAlive) { return; }
 
         Run();
-        ClimbLadder();
+        //ClimbLadder();
         Jump();
-        FlipSprite();
-        Die();
+        //FlipSprite();
+        //Die();
     }
 
     private void Run()
@@ -77,9 +78,10 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-
+        Debug.Log("can jump");
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
+            Debug.Log("jump pressed");
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity += jumpVelocityToAdd;
         }
